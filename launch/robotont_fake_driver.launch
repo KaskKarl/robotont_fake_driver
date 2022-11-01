@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <include file="$(find robotont_description)/launch/display_simulated_robot.launch">
+    <arg name="rviz_fixed_frame" value="odom" />
+  </include>
+
+  <node name="robotont_fake_driver_node" pkg="robotont_fake_driver" type="robotont_fake_driver_node" output="screen">
+    <param name="odom_frame" value="odom" />
+    <param name="base_frame" value="base_footprint" />
+  </node>    
+
+</launch>
+
