@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   nav_msgs
   roscpp
+  std_srvs
   tf
 )
 
@@ -106,7 +107,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES robotont_fake_driver
-  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp tf
+  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp std_srvs tf
 #  DEPENDS system_lib
 )
 
@@ -117,8 +118,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
+   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -198,10 +198,21 @@ target_link_libraries(${PROJECT_NAME}_node
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_robotont_fake_driver.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
+
+if(CATKIN_ENABLE_TESTING)
+   catkin_add_gtest(odom_test test/odom_test.cpp)
+   target_link_libraries(odom_test ${catkin_LIBRARIES})
+   
+   catkin_add_gtest(odom_reset_test test/odom_reset_test.cpp)
+   target_link_libraries(odom_reset_test ${catkin_LIBRARIES})
+   
+   find_package(rostest REQUIRED)
+   add_rostest(test/pub_test.test)
+   add_rostest(test/odom_reset_test.test)
+   add_rostest(test/odom_test.test)
+endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+

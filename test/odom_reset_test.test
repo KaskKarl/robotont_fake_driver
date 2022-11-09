@@ -1,0 +1,7 @@
+<launch>
+  <node name="robotont_fake_driver_node" pkg="robotont_fake_driver" type="robotont_fake_driver_node" output="screen">
+    <param name="odom_frame" value="odom" />
+    <param name="base_frame" value="base_footprint" />
+  </node>  
+  <test test-name="odom_reset_test" pkg="robotont_fake_driver" type="odom_reset_test" />
+</launch>

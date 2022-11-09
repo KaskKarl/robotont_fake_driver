@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="robotont_fake_driver" type="robotont_fake_driver_node" name="robotont_fake_driver"/>
+</launch>

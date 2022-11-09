@@ -1,0 +1,4 @@
+<launch>
+  <node name="robotont_fake_driver_node" pkg="robotont_fake_driver" type="robotont_fake_driver_node" />
+  <test test-name="odom_test" pkg="robotont_fake_driver" type="odom_test" />
+</launch>

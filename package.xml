@@ -2,7 +2,7 @@
 <package format="2">
   <name>robotont_fake_driver</name>
   <version>0.0.1</version>
-  <description>The robotont_fake_driver package</description>
+  <description>The robotont fake driver package</description>
   <author>Veiko Vunder</author>
   <maintainer email="veiko.vunder@ut.ee">Veiko Vunder</maintainer>
   <license>Apache 2.0</license>
@@ -13,17 +13,23 @@
   <build_depend>nav_msgs</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>tf</build_depend>
+  <build_depend>std_srvs</build_depend>
     
   <build_export_depend>geometry_msgs</build_export_depend>
   <build_export_depend>nav_msgs</build_export_depend>
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>tf</build_export_depend>
+  <build_export_depend>std_srvs</build_export_depend>
 
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>nav_msgs</exec_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>tf</exec_depend>
   <exec_depend>robotont_description</exec_depend>
+  <test_depend>rosunit</test_depend>
+  <test_depend>rostest</test_depend>
+  <test_depend>std_srvs</test_depend>
+  
 
   <export>
   </export>
